@@ -1,8 +1,8 @@
 {
   "name": "vue-json-editor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A json editor of vue",
-  "main": "index.js",
+  "main": "vue-json-editor.vue",
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "rimraf dist && webpack",
@@ -22,7 +22,7 @@
     "vue",
     "jsoneditor"
   ],
-  "author": "Jason Kidd",
+  "author": "liuqi41",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dirkliu/vue-json-editor/issues"
