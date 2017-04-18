@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="jsoneditor-vue"></div>
-    <div class="jsoneditor-btns"><el-button type="success" @click="onSave()" :disabled="error">保存</el-button></div>
+    <div class="jsoneditor-btns"><button class="json-save-btn" type="button" @click="onSave()" :disabled="error">保存</button></div>
   </div>
 </template>
 
@@ -41,6 +41,7 @@
     },
     methods: {
       onSave () {
+        console.log('onSave:')
         this.$emit('json-save', this.json)
       }
     }
@@ -76,6 +77,22 @@
 
   .jsoneditor-vue div.jsoneditor-tree{
     min-height: 350px;
+  }
+
+  .json-save-btn{
+    background-color: #20A0FF;
+    border: none;
+    color:#fff;
+    padding:5px 10px;
+    border-radius: 5px;
+  }
+
+  .json-save-btn:focus{
+    outline: none;
+  }
+
+  .json-save-btn[disabled]{
+    background-color: #1D8CE0;
   }
 
   code {
