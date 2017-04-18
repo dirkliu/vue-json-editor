@@ -41,7 +41,6 @@
     },
     methods: {
       onSave () {
-        console.log('onSave:')
         this.$emit('json-save', this.json)
       }
     }
