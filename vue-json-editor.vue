@@ -1,16 +1,16 @@
 <template>
   <div>
     <div class="jsoneditor-vue"></div>
-    <div class="jsoneditor-btns" v-if="showBtns!==false"><el-button type="success" @click="onSave()" :disabled="error">保存</el-button></div>
+    <div class="jsoneditor-btns"><el-button type="success" @click="onSave()" :disabled="error">保存</el-button></div>
   </div>
 </template>
 
 <script>
-  import 'jsoneditor/dist/jsoneditor.css'
-  import JsonEditor from 'jsoneditor/dist/jsoneditor.min'
+  import './assets/jsoneditor.css'
+  import JsonEditor from './assets/jsoneditor'
 
   export default {
-    props: ['value', 'showBtns'],
+    props: ['value'],
     data () {
       return {
         editor: null,
@@ -21,20 +21,19 @@
     mounted () {
       var self = this
       var options = {
-        mode: 'code',
-        modes: ['code', 'form', 'text', 'tree', 'view'], // allowed modes
+        mode: 'tree',
+        modes: ['tree', 'code', 'form', 'text', 'view'], // allowed modes
         onChange () {
           try {
             var json = self.editor.get()
             self.error = false
           } catch (e) {
+            console.log('e:', e)
             self.error = true
           }
           if (!self.error) {
             self.json = json
             self.$emit('json-change', json)
-          } else {
-            self.$emit('json-change', null, 'error')
           }
         }
       }
@@ -73,6 +72,10 @@
 
   .jsoneditor-vue .jsoneditor-outer{
     min-height:150px;
+  }
+
+  .jsoneditor-vue div.jsoneditor-tree{
+    min-height: 350px;
   }
 
   code {
