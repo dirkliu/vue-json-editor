@@ -1,10 +1,10 @@
 import Vue from 'vue'
-import vueJsonEditor from '../vue-json-editor.vue'
+import App from './App.vue'
 
 new Vue({
   el: '#app',
-  components: { vueJsonEditor },
+  components: { App },
   render (h) {
-    return h('vueJsonEditor')
+    return h('App')
   }
 })

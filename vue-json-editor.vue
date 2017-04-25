@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="jsoneditor-vue"></div>
-    <div class="jsoneditor-btns"><button class="json-save-btn" type="button" @click="onSave()" :disabled="error">保存</button></div>
+    <div class="jsoneditor-btns" v-if="showBtns!==false"><button class="json-save-btn" type="button" @click="onSave()" :disabled="error">保存</button></div>
   </div>
 </template>
 
@@ -10,7 +10,7 @@
   import JsonEditor from './assets/jsoneditor'
 
   export default {
-    props: ['value'],
+    props: ['value', 'showBtns'],
     data () {
       return {
         editor: null,

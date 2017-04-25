@@ -1,6 +1,6 @@
 {
   "name": "vue-json-editor",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A json editor of vue",
   "main": "vue-json-editor.vue",
   "scripts": {
@@ -13,14 +13,13 @@
     "url": "git+https://github.com/dirkliu/vue-json-editor.git"
   },
   "keywords": [
+    "vue-json-editor",
+    "vuejsoneditor"
+    "json-editor",
+    "jsoneditor",
     "json",
     "eidtor",
-    "jsoneditor\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D",
-    "\u001b[B\u001b[B\u001b[B\u001b[A\u001b[A\u001b[A\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C",
-    "json-editor",
-    "vue-json-editor",
-    "vue",
-    "jsoneditor"
+    "vue"
   ],
   "author": "liuqi41",
   "license": "ISC",
