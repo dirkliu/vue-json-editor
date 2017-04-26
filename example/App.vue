@@ -7,9 +7,10 @@ import vueJsonEditor from '../vue-json-editor.vue'
 export default {
   data () {
     return {
-      json: {
-        name: "Dirk"
-      }
+      json: [
+        {"name": "Dirk", "age": 1234},
+		    {"name": "Jason"}
+      ]
     }
   },
 
