@@ -11,6 +11,11 @@
 
   export default {
     props: ['value', 'showBtns'],
+    watch: {
+      value: function (newValue) {
+        this.editor.set(newValue)
+      }
+    },
     data () {
       return {
         editor: null,
@@ -34,6 +39,7 @@
           if (!self.error) {
             self.json = json
             self.$emit('json-change', json)
+            self.$emit('input', json)
           }
         }
       }
