@@ -20,7 +20,7 @@ npm install vue-json-editor --save
   <div>
     <p>vue-json-editor使用</p>
     <!--在模板中使用vue-json-editor-->
-    <vue-json-editor v-model="json" :showBtns="true" @json-change="onJsonChange"></vue-json-editor
+    <vue-json-editor v-model="json" :showBtns="true" @json-change="onJsonChange"></vue-json-editor>
   <div>
 </template>
 
