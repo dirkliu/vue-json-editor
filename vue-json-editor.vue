@@ -11,11 +11,19 @@
 
   export default {
     props: ['value', 'showBtns'],
+    watch: {
+      value: function (newValue) {
+        if (!this.internalChange) {
+          this.editor.set(newValue)
+        }
+      }
+    },
     data () {
       return {
         editor: null,
         error: false,
-        json: this.value
+        json: this.value,
+        internalChange: false
       }
     },
     mounted () {
@@ -34,6 +42,11 @@
           if (!self.error) {
             self.json = json
             self.$emit('json-change', json)
+            self.internalChange = true
+            self.$emit('input', json)
+            self.$nextTick(function () {
+              self.internalChange = false
+            })
           }
         }
       }
