@@ -36,7 +36,6 @@
             var json = self.editor.get()
             self.error = false
           } catch (e) {
-            console.log('e:', e)
             self.error = true
           }
           if (!self.error) {
