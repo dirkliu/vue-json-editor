@@ -1,5 +1,5 @@
 <template>
-  <vue-json-editor v-model="json" :showBtns="false" @json-change="onJsonChange"></vue-json-editor>
+  <vue-json-editor v-model="json" :show-btns="false" @json-change="onJsonChange"></vue-json-editor>
 </template>
 
 <script>
