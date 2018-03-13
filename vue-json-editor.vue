@@ -8,9 +8,8 @@
 <script>
   import './assets/jsoneditor.css'
   import JsonEditor from './assets/jsoneditor'
-
   export default {
-    props: ['value', 'showBtns'],
+    props: ['value', 'showBtns',"mode","modes"],
     watch: {
       value: function (newValue) {
         if (!this.internalChange) {
@@ -27,10 +26,14 @@
       }
     },
     mounted () {
-      var self = this
-      var options = {
-        mode: 'tree',
-        modes: ['tree', 'code', 'form', 'text', 'view'], // allowed modes
+     var self = this;
+     var mode="tree";
+     var modes= ['tree', 'code', 'form', 'text', 'view'];
+      if (this.mode!==undefined) mode=this.mode;
+      if (!this.modes!== undefined) modes=this.modes;
+     var options = {
+        mode: mode,
+        modes: modes, // allowed modes
         onChange () {
           try {
             var json = self.editor.get()
@@ -64,33 +67,26 @@
   .ace_line_group {
     text-align: left;
   }
-
   .json-editor-container {
     display: flex;
     width: 100%;
   }
-
   .json-editor-container .tree-mode {
     width: 50%;
   }
-
   .json-editor-container .code-mode {
     flex-grow: 1;
   }
-
   .jsoneditor-btns{
     text-align: center;
     margin-top:10px;
   }
-
   .jsoneditor-vue .jsoneditor-outer{
     min-height:150px;
   }
-
   .jsoneditor-vue div.jsoneditor-tree{
     min-height: 350px;
   }
-
   .json-save-btn{
     background-color: #20A0FF;
     border: none;
@@ -98,15 +94,12 @@
     padding:5px 10px;
     border-radius: 5px;
   }
-
   .json-save-btn:focus{
     outline: none;
   }
-
   .json-save-btn[disabled]{
     background-color: #1D8CE0;
   }
-
   code {
     background-color: #f5f5f5;
   }
