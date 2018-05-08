@@ -15,7 +15,7 @@ v-model：必须，[json对象]组件的json对象
 npm install vue-json-editor --save
 ```
 ## 2. 在vue组件中使用vue-json-editor
-```
+```vue
 <template>
   <div>
     <p>vue-json-editor使用</p>
