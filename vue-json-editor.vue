@@ -33,7 +33,7 @@
      var mode="tree";
      var modes= ['tree', 'code', 'form', 'text', 'view'];
       if (this.mode!==undefined) mode=this.mode;
-      if (!this.modes!== undefined) modes=this.modes;
+      if (this.modes!== undefined) modes=this.modes;
      var options = {
         mode: mode,
         modes: modes, // allowed modes
