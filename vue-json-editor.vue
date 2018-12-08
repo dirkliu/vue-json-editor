@@ -11,10 +11,13 @@
   export default {
     props: ['value', 'showBtns',"mode","modes"],
     watch: {
-      value: function (newValue) {
-        if (!this.internalChange) {
-          this.editor.set(newValue)
-        }
+      value: {
+        handler(newValue) {
+          if (!this.internalChange) {
+            this.editor.set(newValue)
+          }
+        },
+        deep: true
       }
     },
     data () {
