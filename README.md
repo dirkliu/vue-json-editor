@@ -46,3 +46,6 @@ npm install vue-json-editor --save
   }
 </script>
 ```
+
+# Contributors
+    Stefano Valenzano <valenzano.stefano99@gmail.com> (https://tuttarealstep.github.io/)
