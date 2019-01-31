@@ -66,7 +66,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .ace_line_group {
     text-align: left;
   }
