@@ -1,5 +1,6 @@
 var path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   entry: './example/main.js',
@@ -34,7 +35,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: './index.html',
       template: 'example/index.html'
-    })
+    }),
+
+      new VueLoaderPlugin()
   ],
 
   devServer: {
