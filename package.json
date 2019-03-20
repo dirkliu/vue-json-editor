@@ -1,6 +1,6 @@
 {
   "name": "vue-json-editor",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "description": "A json editor of vue",
   "main": "vue-json-editor.vue",
   "scripts": {
@@ -23,7 +23,12 @@
   ],
   "author": "liuqi41",
   "contributors": [
-    "Stefano Valenzano <valenzano.stefano99@gmail.com> (https://tuttarealstep.github.io/)"
+    "Stefano Valenzano <valenzano.stefano99@gmail.com> (https://tuttarealstep.github.io/)",
+    "Duncan Lock (https://github.com/dflock)",
+    "Jean-Pierre (https://github.com/jpbecotte)",
+    "tianzhihen (https://github.com/tianzhihen)",
+    "alexmgillis (https://github.com/alexmgillis)",
+    "DrCoc (https://github.com/DrCoc)"
   ],
   "license": "ISC",
   "bugs": {

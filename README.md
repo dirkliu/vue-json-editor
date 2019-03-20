@@ -3,7 +3,7 @@ A json editor of vue.js
 
 ## Component properties
 v-model：bind the [json object]   
-:showBtns: boolean, show the save button, defualt: true   
+:show-btns: boolean, show the save button, defualt: true   
 :mode: string, default: tree
 :lang: string, default: en   
 @json-change: on json changed   
@@ -20,7 +20,7 @@ npm install vue-json-editor --save
 <template>
   <div>
     <p>vue-json-editor</p>
-    <vue-json-editor v-model="json" :showBtns="true" @json-change="onJsonChange"></vue-json-editor>
+    <vue-json-editor v-model="json" :show-btns="true" @json-change="onJsonChange"></vue-json-editor>
   <div>
 </template>
 
