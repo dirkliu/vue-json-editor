@@ -9,7 +9,25 @@
     import './assets/jsoneditor.css'
     import JsonEditor from './assets/jsoneditor'
     export default {
-        props: ['value', 'showBtns', 'mode', 'modes', 'lang'],
+        // props: ['value', 'showBtns', 'mode', 'modes', 'lang'],
+        props: {
+          value: [String, Number, Object, Array],
+          showBtns: [Boolean],
+          mode: {
+            type: String,
+            default: 'tree'
+          },
+          modes: {
+            type: Array,
+            default: function () {
+              return ['tree', 'code', 'form', 'text', 'view']
+            }
+          },
+          lang: {
+            type: String,
+            default: 'en'
+          }
+        },
         watch: {
             value: {
                 immediate: true,
@@ -45,12 +63,6 @@
         mounted ()
         {
             let self = this;
-            let defaultMode = 'tree';
-            let defaultModes = ['tree', 'code', 'form', 'text', 'view'];
-
-            if (this.mode === undefined) this.mode = defaultMode;
-            if (this.modes === undefined) this.modes = defaultModes;
-            if (this.lang === undefined) this.lang = 'en';
 
             let options = {
                 mode: this.mode,

@@ -1,5 +1,12 @@
 <template>
-  <vue-json-editor v-model="json" :show-btns="true" :mode="'code'" :lang="'en'" @json-change="onJsonChange" @json-save="onJsonSave" @has-error="onError"></vue-json-editor>
+  <vue-json-editor v-model="json" 
+    :show-btns="true" 
+    :mode="'code'" 
+    lang="zh"
+    @json-change="onJsonChange" 
+    @json-save="onJsonSave" 
+    @has-error="onError">   
+  </vue-json-editor>
 </template>
 
 <script>
