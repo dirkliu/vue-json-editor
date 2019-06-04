@@ -3,7 +3,7 @@ A json editor of vue.js
 
 ## Component properties
 v-model：bind the [json object]   
-:show-btns: boolean, show the save button, defualt: true   
+:show-btns: boolean, show the save button, default: true   
 :mode: string, default: tree
 :lang: string, default: en   
 @json-change: on json changed   
