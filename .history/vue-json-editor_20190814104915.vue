@@ -94,7 +94,7 @@ export default {
         }
       },
       onModeChange() {
-        self.expandAll();
+        this.expandAll();
       }
     };
 

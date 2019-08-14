@@ -46,7 +46,12 @@ export default {
         if (!this.internalChange) {
           await this.setEditor(val);
 
-          this.expandAll();
+          if (
+            this.expandedOnStart &&
+            this.expandedModes.includes(this.editor.getMode())
+          ) {
+            this.editor.expandAll();
+          }
         }
       },
       deep: true
@@ -94,7 +99,7 @@ export default {
         }
       },
       onModeChange() {
-        self.expandAll();
+        this.expandAll();
       }
     };
 
@@ -105,7 +110,7 @@ export default {
     );
   },
   methods: {
-    expandAll() {
+    expandAll(){
       if (
         this.expandedOnStart &&
         this.expandedModes.includes(this.editor.getMode())

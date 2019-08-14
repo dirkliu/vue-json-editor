@@ -1,6 +1,6 @@
 {
   "name": "vue-json-editor",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "A json editor of vue",
   "main": "vue-json-editor.vue",
   "scripts": {
@@ -28,7 +28,8 @@
     "Jean-Pierre (https://github.com/jpbecotte)",
     "tianzhihen (https://github.com/tianzhihen)",
     "alexmgillis (https://github.com/alexmgillis)",
-    "DrCoc (https://github.com/DrCoc)"
+    "DrCoc (https://github.com/DrCoc)",
+    "Aymeric Hermant (https://github.com/ahermant/)"
   ],
   "license": "ISC",
   "bugs": {
