@@ -1,102 +1,128 @@
 <template>
   <div>
     <div class="jsoneditor-vue"></div>
-    <div class="jsoneditor-btns" v-if="showBtns!==false"><button class="json-save-btn" type="button" @click="onSave()" :disabled="error">{{ locale[lang].save }}</button></div>
+    <div class="jsoneditor-btns" v-if="showBtns!==false">
+      <button
+        class="json-save-btn"
+        type="button"
+        @click="onSave()"
+        :disabled="error"
+      >{{ locale[lang].save }}</button>
+    </div>
   </div>
 </template>
 
 <script>
-    import './assets/jsoneditor.css'
-    import JsonEditor from './assets/jsoneditor'
-    export default {
-        // props: ['value', 'showBtns', 'mode', 'modes', 'lang'],
-        props: {
-          value: [String, Number, Object, Array],
-          showBtns: [Boolean],
-          mode: {
-            type: String,
-            default: 'tree'
-          },
-          modes: {
-            type: Array,
-            default: function () {
-              return ['tree', 'code', 'form', 'text', 'view']
-            }
-          },
-          lang: {
-            type: String,
-            default: 'en'
-          }
-        },
-        watch: {
-            value: {
-                immediate: true,
-                handler (val)
-                {
-                    if (!this.internalChange)
-                    {
-                        this.setEditor(val)
-                    }
-                },
-                deep: true
-            }
-        },
-        data () {
-            return {
-                editor: null,
-                error: false,
-                json: this.value,
-                internalChange: false,
-                locale: {
-                    'it': {
-                        save: 'SALVA',
-                    },
-                    'en': {
-                        save: 'SAVE',
-                    },
-                    'zh': {
-                        save: '保存'
-                    }
-                }
-            }
-        },
-        mounted ()
-        {
-            let self = this;
-
-            let options = {
-                mode: this.mode,
-                modes: this.modes, // allowed modes
-                onChange () {
-                    try {
-                        let json = self.editor.get();
-                        self.json = json;
-                        self.$emit('json-change', json);
-                        self.internalChange = true;
-                        self.$emit('input', json);
-                        self.$nextTick(function () {
-                            self.internalChange = false
-                        })
-                    } catch (e) {
-                        self.$emit('has-error', e);
-                    }
-                }
-            };
-
-            this.editor = new JsonEditor(this.$el.querySelector('.jsoneditor-vue'), options, this.json)
-        },
-        methods: {
-            onSave () {
-                this.$emit('json-save', this.json)
-            },
-
-            setEditor(value)
-            {
-                if(this.editor)
-                    this.editor.set(value)
-            }
-        }
+import "./assets/jsoneditor.css";
+import JsonEditor from "./assets/jsoneditor";
+export default {
+  // props: ['value', 'showBtns', 'mode', 'modes', 'lang'],
+  props: {
+    value: [String, Number, Object, Array],
+    showBtns: [Boolean],
+    expandedOnStart: {
+      type: Boolean,
+      default: false
+    },
+    mode: {
+      type: String,
+      default: "tree"
+    },
+    modes: {
+      type: Array,
+      default: function() {
+        return ["tree", "code", "form", "text", "view"];
+      }
+    },
+    lang: {
+      type: String,
+      default: "en"
     }
+  },
+  watch: {
+    value: {
+      immediate: true,
+      async handler(val) {
+        if (!this.internalChange) {
+          await this.setEditor(val);
+
+          this.expandAll();
+        }
+      },
+      deep: true
+    }
+  },
+  data() {
+    return {
+      editor: null,
+      error: false,
+      json: this.value,
+      internalChange: false,
+      expandedModes: ["tree", "view", "form"],
+      locale: {
+        it: {
+          save: "SALVA"
+        },
+        en: {
+          save: "SAVE"
+        },
+        zh: {
+          save: "保存"
+        }
+      }
+    };
+  },
+  mounted() {
+    let self = this;
+
+    let options = {
+      mode: this.mode,
+      modes: this.modes, // allowed modes
+      onChange() {
+        console.log("Json editor change");
+        try {
+          let json = self.editor.get();
+          self.json = json;
+          self.$emit("json-change", json);
+          self.internalChange = true;
+          self.$emit("input", json);
+          self.$nextTick(function() {
+            self.internalChange = false;
+          });
+        } catch (e) {
+          self.$emit("has-error", e);
+        }
+      },
+      onModeChange() {
+        self.expandAll();
+      }
+    };
+
+    this.editor = new JsonEditor(
+      this.$el.querySelector(".jsoneditor-vue"),
+      options,
+      this.json
+    );
+  },
+  methods: {
+    expandAll() {
+      if (
+        this.expandedOnStart &&
+        this.expandedModes.includes(this.editor.getMode())
+      ) {
+        this.editor.expandAll();
+      }
+    },
+
+    onSave() {
+      this.$emit("json-save", this.json);
+    },
+
+    async setEditor(value) {
+      if (this.editor) this.editor.set(value);
+    }
+  }
+};
 </script>
 
 <style scoped>
