@@ -79,7 +79,6 @@ export default {
       mode: this.mode,
       modes: this.modes, // allowed modes
       onChange() {
-        console.log("Json editor change");
         try {
           let json = self.editor.get();
           self.json = json;
