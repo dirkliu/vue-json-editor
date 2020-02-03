@@ -27,17 +27,19 @@ npm install vue-json-editor --save
 <template>
   <div>
     <p>vue-json-editor</p>
-    <vue-json-editor v-model="json" :show-btns="true" :exapndedOnStart:"true" @json-change="onJsonChange"></vue-json-editor>
-  <div>
+    <vue-json-editor v-model="json" :show-btns="true" :exapndedOnStart="true" @json-change="onJsonChange"></vue-json-editor>
+  </div>
 </template>
 
 <script>
   import vueJsonEditor from 'vue-json-editor'
 
-  export default{
+  export default {
     data () {
-      json: {
-        msg: 'demo of jsoneditor'
+      return {
+        json: {
+          msg: 'demo of jsoneditor'
+        }
       }
     },
 
