@@ -27,7 +27,7 @@ npm install vue-json-editor --save
 <template>
   <div>
     <p>vue-json-editor</p>
-    <vue-json-editor v-model="json" :show-btns="true" :exapndedOnStart="true" @json-change="onJsonChange"></vue-json-editor>
+    <vue-json-editor v-model="json" :show-btns="true" :expandedOnStart="true" @json-change="onJsonChange"></vue-json-editor>
   </div>
 </template>
 
