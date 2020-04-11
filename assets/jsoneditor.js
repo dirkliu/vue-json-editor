@@ -10446,7 +10446,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var innerText = '';
 
 	    for (var i = 0, iMax = childNodes.length; i < iMax; i++) {
-	      var child = childNodes[i];
+		  var child = childNodes[i];
+		  // Skip <style> and <script> elements and empty text nodes that are direct decentants of editor
+		  if (['STYLE', 'SCRIPT'].includes(child.tagName) || (child.nodeValue && !child.nodeValue.trim().length && element.isContentEditable)) continue;
 
 	      if (child.nodeName == 'DIV' || child.nodeName == 'P') {
 	        var prevChild = childNodes[i - 1];
