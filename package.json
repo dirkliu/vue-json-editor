@@ -1,6 +1,6 @@
 {
   "name": "vue-json-editor",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "A json editor of vue",
   "main": "vue-json-editor.vue",
   "scripts": {
