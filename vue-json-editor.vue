@@ -46,6 +46,7 @@ export default {
         if (!this.internalChange) {
           await this.setEditor(val);
 
+          this.error = false;
           this.expandAll();
         }
       },
@@ -82,6 +83,7 @@ export default {
         try {
           let json = self.editor.get();
           self.json = json;
+          self.error = false;
           self.$emit("json-change", json);
           self.internalChange = true;
           self.$emit("input", json);
@@ -89,6 +91,7 @@ export default {
             self.internalChange = false;
           });
         } catch (e) {
+          self.error = true;
           self.$emit("has-error", e);
         }
       },
@@ -154,12 +157,14 @@ export default {
     color:#fff;
     padding:5px 10px;
     border-radius: 5px;
+    cursor: pointer;
   }
   .json-save-btn:focus{
     outline: none;
   }
   .json-save-btn[disabled]{
     background-color: #1D8CE0;
+    cursor: not-allowed;
   }
   code {
     background-color: #f5f5f5;
