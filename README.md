@@ -4,14 +4,14 @@ A json editor of vue.js
 
 ## Component properties
 
-v-model：bind the [json object]
-:show-btns: boolean, show the save button, default: true
-:expandedOnStart: boolean, expand the JSON editor on start for the modes 'tree', 'view', and 'form', default: false
-:mode: string, default: tree
-:lang: string, default: en
-@json-change: on json changed
-@json-save: on json save
-@has-error: on error
+* `v-model`：bind the [json object]
+* `:show-btns`: boolean, show the save button, default: true
+* `:expandedOnStart`: boolean, expand the JSON editor on start for the modes 'tree', 'view', and 'form', default: false
+* `:mode`: string, default: tree
+* `:lang`: string, default: en
+* `@json-change`: on json changed
+* `@json-save`: on json save
+* `@has-error`: on error
 
 # How to use
 
